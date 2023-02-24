@@ -14,5 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return "Raiz";
+});
+
+Route::get('/Bienvenida', function () {
     return view('welcome');
+});
+
+
+Route::get('/custom', function() {
+    $msj2 = "mensaje desde el servidor *-* ";
+
+    $data = ['msj' => $msj2, "edad" => 17];
+
+    return view('custom', $data);
+});
+
+Route::get('/prueba', function()
+{
+    return view('prueba');
 });
