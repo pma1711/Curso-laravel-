@@ -10,5 +10,9 @@
     <h1>prueba mia</h1>
     <h2> Prueba 2 </h2>
     <h3>prueba 3</h3>
+
+<a href="{{route ('prueba')}}"> Contacto con link</a>
+
+
 </body>
 </html>

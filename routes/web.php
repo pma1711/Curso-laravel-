@@ -21,6 +21,10 @@ Route::get('/Bienvenida', function () {
     return view('welcome');
 });
 
+Route::get('/escribeme', function () {
+    return "Contactame";
+})->name('contacto');
+
 
 Route::get('/custom', function() {
     $msj2 = "mensaje desde el servidor *-* ";
@@ -32,5 +36,5 @@ Route::get('/custom', function() {
 
 Route::get('/prueba', function()
 {
-    return view('prueba');
-});
+    return "prueba";
+})->name('prueba');
