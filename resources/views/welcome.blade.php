@@ -8,9 +8,6 @@
 </head>
 <body>
 <h1>Bienvenido </h1>
-   <a href="/contacto"> Contacto</a>
-
-   <a href="{{ route ('contacto')}}">Contacto  (ruta con nombre)</a>
-   <a href="{{ route ('prueba')}}">Prueba  (ruta con nombre)</a>
+{{ $user ->email}}
 </body>
 </html>

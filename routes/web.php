@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return "Raiz";
-});
+
+Route::get('/', [TestController::class,'test']);
 
 Route::get('/Bienvenida', function () {
     return view('welcome');
@@ -38,3 +38,4 @@ Route::get('/prueba', function()
 {
     return "prueba";
 })->name('prueba');
+
