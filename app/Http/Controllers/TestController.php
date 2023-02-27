@@ -11,7 +11,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        return view("index",['name' => 'Patricio magaña', 'age' => '30']);
+        return view("index",['name' => 'Patricio magaña', 'age' => '30', 'html'=> '<h1>hola mundo</h1>']);
     }
 
     /**

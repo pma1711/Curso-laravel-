@@ -8,6 +8,18 @@
 </head>
 <body>
     {{$name}}
-    {{$age}}
+
+    <!--{{$age}}-->
+
+    {{-- $age--}}
+
+    {!!$html!!}
+
+    <!-- comentario en html-->
+    {{--comentario de blade--}}
+
+    <script>
+alert ("hola mundo")
+</script>
 </body>
 </html>
