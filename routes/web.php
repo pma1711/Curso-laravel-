@@ -1,7 +1,8 @@
 <?php
-
+use App\Http\Controllers\Dashboard\TestController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TestController;
+
+
 
 /*
 |--------------------------------------------------------------------------
