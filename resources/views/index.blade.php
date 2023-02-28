@@ -9,6 +9,32 @@
 <body>
     {{$name}}
 
+
+<?php if(true){ echo $name ?> 
+asasasasas
+<?php }  ?>
+
+@if ($name == "Patricio magaña")
+    es true
+    @else
+    No es true 
+@endif
+
+@foreach ($array as $a)
+<div class= "box item">
+<p>{{$a}}</p>
+    </div>
+@endforeach
+<hr>
+
+@forelse ($array as $a)
+<div class= "box item">
+<p>{{$a}}</p>
+    </div>
+
+    @empty
+    NO hay Data
+@endforelse
     <!--{{$age}}-->
 
     {{-- $age--}}
@@ -18,8 +44,6 @@
     <!-- comentario en html-->
     {{--comentario de blade--}}
 
-    <script>
-alert ("hola mundo")
-</script>
+
 </body>
 </html>
