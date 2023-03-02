@@ -8,6 +8,5 @@
 </head>
 <body>
 <h1>Bienvenido </h1>
-{{ $user ->email}}
 </body>
 </html>

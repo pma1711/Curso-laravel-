@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\Dashboard\TestController;
+use App\Http\Controllers\Dashboard\PostController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,27 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', [TestController::class,'index']);
-
-Route::get('/Bienvenida', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/escribeme', function () {
-    return "Contactame";
-})->name('contacto');
+
+Route::resource('post', PostController::class);
+
+//Route::get('post', [PostController::class,'index']);
+//Route::get('post/{post}', [PostController::class,'show']);
+//Route::get('post/create', [PostController::class,'create']);
+//Route::get('post/{post}edit', [PostController::class,'edit']);
 
 
-Route::get('/custom', function() {
-    $msj2 = "mensaje desde el servidor *-* ";
-
-    $data = ['msj' => $msj2, "edad" => 17];
-
-    return view('custom', $data);
-});
-
-Route::get('/prueba', function()
-{
-    return "prueba";
-})->name('prueba');
+//Route::post('post', [PostController::class,'store']);
+//Route::put('post/{post}', [PostController::class,'update']);
+//Route::delete('post/{post}', [PostController::class,'delete']);
 
