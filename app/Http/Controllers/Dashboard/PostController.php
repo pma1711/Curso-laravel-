@@ -33,14 +33,10 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
-        //
-      //  dd(request("title"));
-       //dd($request);
-       //echo $request->input("slug");
-       //echo $request->();
-      // dd($request->all());
+        $validated = $request->validate(StoreRequest::myRules());
+        dd($validated);
       $data = array_merge($request->all(),['image' => '']);
 
 
