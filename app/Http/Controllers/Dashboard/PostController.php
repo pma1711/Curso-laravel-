@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\post\StoreRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -32,14 +33,18 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
       //  dd(request("title"));
        //dd($request);
        //echo $request->input("slug");
        //echo $request->();
-       dd($request->all());
+      // dd($request->all());
+      $data = array_merge($request->all(),['image' => '']);
+
+
+      Post::create($data);
     }
 
     /**

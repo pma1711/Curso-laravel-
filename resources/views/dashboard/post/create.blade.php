@@ -25,7 +25,7 @@
                
            @endforeach
     </select>
-
+<label for="">Posteado</label>
     <select name="posted">
         <option value="no">No</option>
         <option value="yes">si</option>
