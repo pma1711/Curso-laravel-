@@ -35,14 +35,14 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
        // $validated = $request->validate(StoreRequest::myRules());
         //dd($validated);
 
-        $validated =Validator::make($request->all(),StoreRequest::myRules());
-      $data = array_merge($request->all(),['image' => '']);
-dd($validated->errors());
+       // $validated =Validator::make($request->all(),StoreRequest::myRules());
+        $data = array_merge($request->all(),['image' => '']);
+        //dd($validated->errors());
 
       Post::create($data);
     }
