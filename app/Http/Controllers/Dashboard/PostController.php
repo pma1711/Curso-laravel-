@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use Illuminate\support\Str;
 use App\Http\Requests\post\StoreRequest;
 use App\Models\Category;
 use App\Models\Post;
@@ -41,10 +42,13 @@ class PostController extends Controller
         //dd($validated);
 
        // $validated =Validator::make($request->all(),StoreRequest::myRules());
-        $data = array_merge($request->all(),['image' => '']);
+      //  $data = array_merge($request->all(),['image' => '']);
         //dd($validated->errors());
+// $data= $request->validated();
+// $data['slug']= Str::slug($data['title']);
+// dd($data);
 
-      Post::create($data);
+      Post::create($request->validated());
     }
 
     /**

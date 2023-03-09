@@ -3,10 +3,19 @@
 namespace App\Http\Requests\post;
 
 use Illuminate\Foundation\Http\FormRequest;
+use illuminate\Support\Str;
 
 class StoreRequest extends FormRequest
 {
+    
+protected function prepareForValidation()
+{
+    $this->merge([
 
+    'slug' => Str::slug($this->title)]
+
+    );
+}
     static public function myRules()
     {
         return[
