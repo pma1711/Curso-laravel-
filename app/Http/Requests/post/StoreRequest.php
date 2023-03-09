@@ -12,9 +12,10 @@ protected function prepareForValidation()
 {
     $this->merge([
 
-    'slug' => Str::slug($this->title)]
-
-    );
+    // 'slug' => Str::slug($this->title)]
+    //  'slug' => Str::of($this->title)->slug()->append("-adicional")
+    'slug'=> Str($this->title)->slug()
+    ]);
 }
     static public function myRules()
     {
