@@ -19,7 +19,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        echo 'prueba CRUD';
+        $posts = Post::get();
+        return view('dashboard.post.index',compact('posts'));
     }
 
     /**
