@@ -2,6 +2,9 @@
 
 @section('content')
 
+
+<a href="{{ route ("post.create") }}">crear</a>
+
 <table>
     <thead>
 <tr>
@@ -33,7 +36,14 @@
             {{$p->Posted}}
         </td>
         <td>
-           Acciones
+            <a href="{{ route ("post.edit",$p) }}">editar</a>
+            <a href="{{ route ("post.show",$p) }}">mostrar</a>
+           <form action="{{ route ("post.destroy",$p) }}" method="post">
+            @method('DELETE')
+            @csrf
+        <button type="submit">Eliminar</button>   
+        </form>
+        
         </td>
     </tr>
     </thead>
