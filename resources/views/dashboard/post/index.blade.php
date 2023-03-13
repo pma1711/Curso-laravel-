@@ -39,6 +39,8 @@
     </thead>
     @endforeach
 </tbody>
+
 </table>
+{{ $posts->links()}}
 
 @endsection
