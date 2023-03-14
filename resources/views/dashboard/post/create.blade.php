@@ -9,29 +9,29 @@
 @csrf
 
 <label for="">Titulo</label>
-<input type="text" name="title">
+<input type="text" name="title" value="{{old ("title", "")}}">
 
 <label for="">Slug</label>
-<input type="text" name="slug">
+<input type="text" name="slug" value="{{old ("slug", "")}}">
 
 <label for="">Categoria</label>
-<select name="category_id">
+<select name="category_id" >
     <option value=""></option>
        @foreach ($categories as $title=> $id)
-       <option value="{{$id}}">{{$title}}</option>
+       <option {{old ("category_id","") == $id ? "selected" : ""}}value="{{$id}}">{{$title}}</option>
            
        @endforeach
 </select>
 <label for="">Posteado</label>
 <select name="posted">
-    <option value="no">No</option>
-    <option value="yes">si</option>
+    <option {{old ("posted", "") == "not" ? "selected" : ""}} value="no">No</option>
+    <option {{old ("posted", "") == "yes" ? "selected" : ""}} value="yes">si</option>
 </select>
 <label for="">Contenido</label>
-<textarea name="content"></textarea>
+<textarea name="content">{{old ("content","")}}</textarea>
 
 <label for="">Descripcion</label>
-<textarea name="description"></textarea>
+<textarea name="description">{{old("description","")}}</textarea>
 
 <button type="submit">Enviar</button>
 @endsection
