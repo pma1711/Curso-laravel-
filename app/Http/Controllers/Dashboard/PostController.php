@@ -8,8 +8,9 @@ use App\Http\Requests\post\PutRequest;
 use App\Http\Requests\post\StoreRequest;
 use App\Models\Category;
 use App\Models\Post;
-
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Validator;
+use PhpParser\Node\Expr\Isset_;
 
 class PostController extends Controller
 {
@@ -50,9 +51,12 @@ class PostController extends Controller
        // $validated =Validator::make($request->all(),StoreRequest::myRules());
       //  $data = array_merge($request->all(),['image' => '']);
         //dd($validated->errors());
-// $data= $request->validated();
-// $data['slug']= Str::slug($data['title']);
-// dd($data);
+    
+        // $data= $request->validated();
+    
+        // $data['slug']= Str::slug($data['title']);
+    
+        // dd($data);
 
       Post::create($request->validated());
       return to_route("post.index")->with('status',"Registro creado.");
@@ -87,7 +91,14 @@ class PostController extends Controller
      */
     public function update(PutRequest $request, Post $post)
     {
-        $post->update($request->validated());
+        $data= $request->validated();
+        if(Isset($data["image"])){
+
+
+           $data["image"] =$filename = time().".".$data["image"]->extension();
+            $request->image->move(public_path("image"), $filename);
+        }
+        $post->update($data);
         //$request->session()->flash('status','Registro actualizado');
         return to_route("post.index")->with('status','Registro actualizado');
     }
