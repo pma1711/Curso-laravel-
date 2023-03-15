@@ -55,6 +55,7 @@ class PostController extends Controller
 // dd($data);
 
       Post::create($request->validated());
+      return to_route("post.index")->with('status',"Registro creado.");
     }
 
     /**
@@ -87,7 +88,8 @@ class PostController extends Controller
     public function update(PutRequest $request, Post $post)
     {
         $post->update($request->validated());
-        return to_route("post.index");
+        //$request->session()->flash('status','Registro actualizado');
+        return to_route("post.index")->with('status','Registro actualizado');
     }
 
     /**
@@ -97,7 +99,7 @@ class PostController extends Controller
     {
         
         $post->delete();
-        return to_route("post.index");
+        return to_route("post.index")->with('status','Registro eliminado');
        
     }
 }
