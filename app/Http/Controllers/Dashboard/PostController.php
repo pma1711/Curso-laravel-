@@ -19,11 +19,6 @@ class PostController extends Controller
      */
     public function index()
     {
-        //return route("post.create");
-        //return redirect("/post/create");
-        //return redirect()->route("post.create");
-      //  return to_route("post.create"); //laravel 9 nuevo
-
         $posts = Post::paginate(2);
         return view('dashboard.post.index',compact('posts'));
     }
@@ -45,19 +40,6 @@ class PostController extends Controller
      */
     public function store(StoreRequest $request)
     {
-       // $validated = $request->validate(StoreRequest::myRules());
-        //dd($validated);
-
-       // $validated =Validator::make($request->all(),StoreRequest::myRules());
-      //  $data = array_merge($request->all(),['image' => '']);
-        //dd($validated->errors());
-    
-        // $data= $request->validated();
-    
-        // $data['slug']= Str::slug($data['title']);
-    
-        // dd($data);
-
       Post::create($request->validated());
       return to_route("post.index")->with('status',"Registro creado.");
     }
